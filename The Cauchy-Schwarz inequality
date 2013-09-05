@@ -1,0 +1,2 @@
+sum(a1^2).sum(b1^2)>=(sum(a1.b1))^2
+where a1 & b1 s are 1st component of vectors from a innerproduct space.
