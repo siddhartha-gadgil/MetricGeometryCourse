@@ -30,6 +30,10 @@ To start, clone this repository locally. This can be done easily on Windows/Mac 
 Please make a separate latex file for each topic. If there is already a LaTeX file, edit this file. If you are new to LaTeX, you can use an online collaborative interface such as writelatex (which also has a nice tutorial).
 
 
+##Note:
+The Latex sources should be in the src/ directory. Any pdf that is ready to be downloaded should be in the downloads directory.
+
+
 
 
 
