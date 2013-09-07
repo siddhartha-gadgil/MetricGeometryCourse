@@ -27,11 +27,12 @@ Topics in the course (so far) are:
 
 To start, clone this repository locally. This can be done easily on Windows/Mac using GitHub for Windows/Mac. These tools also let you sync with the server easily. Plenty of help is available on GitHub.
 
-Please make a separate latex file for each topic. If there is already a LaTeX file, edit this file. If you are new to LaTeX, you can use an online collaborative interface such as writelatex (which also has a nice tutorial).
+Please use the empty skeleton of LaTeX file already created for that topic. If you are new to LaTeX, you can use an online collaborative interface such as writelatex (which also has a nice tutorial).
 
+To compile tex files into a pdf file, on Linux system type `make notes` in the terminal from the cloned directory. For any other platform open `Main.tex` in a Latex Editor and compile it (This works on Linux as well).
 
 ##Note:
-The Latex sources should be in the src/ directory. Any pdf that is ready to be downloaded should be in the downloads directory.
+The Latex sources should be in the src/ directory.
 
 
 
