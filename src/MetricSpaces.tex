@@ -12,19 +12,46 @@ spaces arise in many contexts. We begin by considering a few examples.
 \end{enumerate}
 
 \begin{defn}
-Let X be a non-empty set and $x, y \in X$ . Let $d: X\times X \leftarrow \mathbb{R}$ such that it satisfies
+Let X be a non-empty set and $x, y \in X$ . Let $d: X\times X \leftarrow \mathbb{R}$
+such that it satisfies
 \begin{enumerate}
     \item Positivity:
-    \begin{itemize}
+    \begin{enumerate}
         \item $d(x,y) \geq 0$
         \item $d(x,x) = 0$
         \item $d(x,y) = 0 \ \Rightarrow\ x = y$
-    \end{itemize}
+    \end{enumerate}
     \item Symmetry:  $d(x,y) = d(y, x)$
     \item Triangle Inequality: $d(x,y)+d(y,z) \geq d(x,z)$
 \end{enumerate}
-\vspace{1pt}
+Then $X$ is called a metric space with the metric $d$.
 \begin{rmk}
     We would often like to allow $d(x,y)=\infty$ so $d:X\times X \Rightarrow [0, \infty]$
 \end{rmk}
+
+\begin{exr}
+Let $d_{n} : X\times X \rightarrow \mathbb{R}$ is a metric on X, $\forall n \in \mathbb{N}$.
+Prove that $d(x, y) = {inf}\limits_{n \in \mathbb{N}}\{d_{n}(x,y)\}$ satisfies
+all conditions except 1(c).
+\end{exr}
+
+\begin{exr}
+Let $d : X\times X \rightarrow \mathbb{R}$ satisfies all properties of a metric
+expect 1(c).
+    \begin{enumerate}
+        \item Show that the relation
+            $$x \sim y \Leftrightarrow d(x,y) = 0$$
+          is an equivalence realtion on X.
+
+        \item Show that there is a well defined function
+          $\bar{d} : \bigslant{X}{\sim} \times \bigslant{X}{\sim} \rightarrow
+          \mathbb{R} $ given by
+            $$ \bar{d}([x], [y]) = d(x, y) $$
+          where $[x]$ is an equivalence class of $X$ under $\sim$.
+
+        \item Show that $\bar{d}$ is a metric
+    \end{enumerate}
+
+\end{exr}
+
 \end{defn}
