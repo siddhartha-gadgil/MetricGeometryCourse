@@ -1,1 +1,76 @@
 \section{Detective problem: From which spaces could these have come?}
+
+Given finitely many points and some pairs of distances between them. Usual suspects
+are some kinds of spaces from which they have come.
+
+\vspace{0.15in}
+
+\textbf{Problem}: Decide if they could have come from the given space.
+
+\vspace{0.1in}
+
+\noindent \textbf{Model Spaces}:
+
+\vspace{0.4in}
+
+\noindent \textbf{Examples}:
+
+\vspace{0.1in}
+
+(0) 1, 2 or 3 pts with a metric can always come from $\mathbb{R}^2$
+
+\vspace{0.08in}
+
+(0.5) $X = \{A_1, A_2, A_3, A_4\}$ with
+
+\[ d(A_i, A_j) = \left\{
+  \begin{array}{l l}
+    1 & \quad \text{if $i=j$}\\
+    0 & \quad \text{otherwise}
+  \end{array} \right.\]
+
+\qquad can come from $\mathbb{R}^3$ but not $\mathbb{R}^2$
+
+\vspace{0.08in}
+
+(1) $X = \{O, A_1, A_2, A_3\}$ with
+    $$d(O, A_i) = 1 \qquad \qquad \forall i$$
+    $$d(A_i, A_j) = 2 \qquad \text{if}\ \ i\neq j$$
+
+\qquad cannot come from $\mathbb{R}^n$. It can come from a
+tree with $O$ as center and $A_i$ as nodes.
+
+\vspace{0.1in}
+
+\textit{Proof}: Assume $X \subset \mathbb{R}^n$. Since $d(A_i, O) + d(O, A_j)= d(A_i, A_j)\ \
+\forall i \in \{1, 2, 3\}$.\ $O$ must be a midpoint $A_1A_2$, $A_2A_3$, $A_3A_1$
+simultaneously which is impossible.
+
+\vspace{0.2in}
+
+\noindent \textbf{More General Arguments}:
+
+\vspace{0.1in}
+
+Given points $O, A_1, A_2, A_3$ and pairwise distances between them, we want
+obstructions to find these point in $\mathbb{R}^n$ with these distances.
+
+\begin{enumerate}
+    \item If $O, A_1, A_2\ \&\ A_3 \in \mathbb{R}^n$ with given distances.
+    \begin{itemize}
+        \item Determine angles from $\angle A_i O A_j$ from distances using cosine rule.
+        \item Total angle at $O$ must be $\leq 2\pi$
+    \end{itemize}
+
+    \item Consider $\mathbb{R}^n$ as vector space with origin as $O$ and let
+    $v_i = \overrightarrow{OA_i}$.
+    $$\left | \left \langle v_i, v_i \right \rangle \right | = \left \| v_i
+    \right \| ^2 = (d(O, A_i))^2 \ \ \text{and} \ \ \left \| v_i - v_j \right \|^2 = (d(A_i, A_j))^2 $$
+
+    Hence we can calculate $\left \| a_1v_1 + a_2v_2 + a_3v_3 \right \|^2, \
+    \forall\ a_1, a_2, a_3 \in \mathbb{R} $
+
+    \textit{Obstruction}: These should all be positive or alternatively
+    $V = [\left \langle v_i, v_j \right \rangle]$ should be positive semi$-$definite.
+
+\end{enumerate}
