@@ -11,7 +11,7 @@ CON = Main.tex -nt $(OUTPUT).log -o \
 	  MetricSpaces.tex -nt $(OUTPUT).log -o \
 	  DetectiveProblem.tex -nt $(OUTPUT).log -o \
 	  LengthInMetricSpaces.tex -nt $(OUTPUT).log  -o \
-	  LengthInSmoothSpaces.tex -nt $(OUTPUT).log  -o \
+	  LengthOfSmoothCurves.tex -nt $(OUTPUT).log  -o \
 	  CauchySchwarzInequality.tex -nt $(OUTPUT).log -o \
 	  LengthEnergy.tex -nt $(OUTPUT).log -o \
 	  EnergyMinimization.tex -nt $(OUTPUT).log -o \
