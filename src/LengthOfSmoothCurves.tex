@@ -1,10 +1,12 @@
 \section{Lengths of smooth curves}
-\begin{ExpLnSmCrv}[Expression for the length of a smooth curve in a normed linear space]
-Assume $\gamma: \left[ 0,1 \right] \to X$ is a $C^1$ function, where $(X,\|\cdot\|)$ is a normed linear space over $\mathbb{R}$. Then
-\begin{equation*}
-\text{length}(\gamma)= \int_{0}^{1} \left|\gamma'(t)\right| \mathrm{d}t.
-\end{equation*}
-\end{ExpLnSmCrv}
+
+\begin{thm}[Expression for the length of a smooth curve in a normed linear space]
+  Let $\gamma: \left[0, 1 \right] \to X$ be a $C^1$ function, where $(X,\|\cdot\|)$ is a normed linear space over $\mathbb{R}$. Then
+  \begin{equation*}
+    \operatorname{Length}(\gamma)= \int\limits_{0}^{1} \left|\dot{\gamma}(t)\right| \mathrm{d}t
+  \end{equation*}
+\end{thm}
+
 \begin{proof}
-Fix $\epsilon > 0$ and choose $0 = t_0 < t_1 < t_2 < \ldots < t_n = 1$ such that for every $i$, one has $\left|t_i-t_{i-1}\right| < \epsilon$.
+  Fix $\epsilon > 0$ and choose $0 = t_0 < t_1 < t_2 < \ldots < t_n = 1$ such that for every $i$, one has $\left|t_i-t_{i-1}\right| < \epsilon$.
 \end{proof}
