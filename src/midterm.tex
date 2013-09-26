@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{enumitem}
+\usepackage{amsthm}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\del}{\partial}
+\newcommand{\E}{\mathcal{E}}
+
+\newtheorem{lemma}{Lemma}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\begin{document}
+
+\title{Metric Geometry\\
+Midterm Assignment} 
+\date{Due: October 14, 2013 at 2:00 p.m.}
+\maketitle
+
+\thispagestyle{empty}
+
+Attempt all questions. Each part of each question is worth 10 points. You may consult notes
+and references as well as the instructor, but \textbf{do not collaborate or
+discuss with anyone else}.
+
+\begin{enumerate}
+\item Let $X$ be a set and $d: X \times X \to \R$ be a function satisfying
+\begin{enumerate}
+ \item For $x$, $y$ in $X$, $d(x, y)\geq 0$.
+ \item For $x$ in $X$, $d(x, x)=0$.
+ \item For $x$, $y$ in $X$, $d(x, y)= d(y,x)$.
+ \item For $x$, $y$, $z$ in $X$, $d(x, y) + d(y,z)\geq d(x, z)$.
+\end{enumerate}
+Show that the relation $\sim$ on $X$ given by $x\sim y$ if and only if
+$d(x,y)=0$ 
+is an equivalence relation. Further, show that we have a well-defined distance
+on $\bar{X}=X/\sim$ given by
+$$\bar{d}([x], [y]) = d(x,y)$$ 
+and that $(\bar{X}, \bar{d})$ is a metric space.
+
+\end{enumerate}
+
+Henceforth, let $U\subset \R^2$ be an open set with $(0,0)\in U$ and let
+$\langle\cdot,\cdot\rangle_p = g_p(\cdot,\cdot)$ be a Riemannian metric on $U$.
+Recall that this means that $g_p$ gives an inner product on $T_p U =\R^2$ at
+each $p\in U$, varying smoothly in $p$.
+
+Let $\nabla$ be the corresponding connection and let $\frac{D}{Ds}$ denote the
+corresponding covariant derivative as usual. You may assume the following
+lemmas.
+
+\begin{lemma}
+ Suppose $f:U\to \R^n$ is a smooth function with $f(0,0)=0$. Then there are
+smooth functions $\varphi: U\to \R^n$ and $\psi: U\to \R^n$ so that 
+$$f(x,y) = x\varphi(x,y) + y \psi(x,y)$$
+for all $(x,y)\in U$.
+\end{lemma}
+
+\begin{lemma}
+ Suppose $f:U\to \R^n$ is a smooth function with $f(x,0)=0$ for all $(x,0)\in U$.
+Then there is a smooth function $\psi: U\to \R^n$ so that 
+$$f(x,y) = y \psi(x,y)$$
+for $(x,y)\in U$.
+\end{lemma}
+
+
+\begin{enumerate}[resume]
+\item Show that if $X$ is a vector field on $U$ with $X(0,0)=0$ and $Y\colon U\to\R^2$ is a
+smooth vector field on $U$, then 
+$$(\nabla_X Y)(0,0) = 0.$$
+
+\item Deduce that if $X_1$ and $X_2$ are vector fields on $U$ with
+$X_1(0,0)=X_2(0,0)$ and $Y$ is a
+smooth vector field on $U$, then 
+$$(\nabla_{X_1} Y)(0,0) = (\nabla_{X_2} Y)(0,0).$$
+
+\item Let $X =\hat i$ be the vector field on $U$ given by the unit vector
+$\hat{i}$ in the positive $x$-direction and let $Y$ be a vector field on $U$
+such that $Y(x,0)=0$ for $(x,0)\in U$. Show that
+$$(\nabla_{X} Y)(x,0) = 0$$
+for $(x,0)\in U$.
+
+
+\item Let $\alpha:(-1,1)\to U$ be a smooth curve with $\alpha(0)=(0,0)$ and
+$\dot{\alpha}(0)\neq 0$. 
+\begin{enumerate}
+\item Show that there is an $\epsilon>0$, an open set $W\subset U$ and a
+diffeomorphism $\Phi:W\to V$ with $V\subset \R^2$ open so that for all $s\in
+(-\epsilon,\epsilon)$, $\alpha(s)\in W$ and $\Phi(\alpha(s)) = (s,0)$.
+\item Deduce that if $Y:(-1,1)\to \R^2$ is a smooth vector field along $\alpha$,
+then there is a smooth vector field $Z$ on $W$ so that for all $s\in
+(-\epsilon,\epsilon)$, $Y(s)= Z(\alpha(s))$.
+\item If $Z$ is a vector field on $W$ so that for all $s\in (-\epsilon,\epsilon)$,
+$Z(\alpha(s))=0$, show that there is a smooth function $\lambda:W \to \R$ 
+with $\lambda(\alpha(s)) =0$ for all $s\in (-\epsilon,\epsilon)$, and a
+vector field $Z'$ on $W$ so that 
+$$Z(p) = \lambda(p)Z'(p)\ \forall p\in W.$$ 
+\item Deduce that if $Z$ is a vector field on $W$ so that for all $s\in
+(-\epsilon,\epsilon)$,
+$Z(\alpha(s))=0$, then
+$$(\nabla_{\dot\alpha(0)}Z)(0,0) = 0.$$
+\item Deduce that if $Y:(-1,1)\to \R^2$ is a smooth vector field along $\alpha$
+and $Z_1$ and $Z_2$ are vector fields on $W$ so that for $s\in
+(-\epsilon,\epsilon)$, $Y(s)= Z_1(\alpha(s)) = Z_2(\alpha(s))$, then
+$$(\nabla_{\dot\alpha(0)}Z_1)(0,0) = (\nabla_{\dot\alpha(0)}Z_2)(0,0).$$
+\end{enumerate}
+\begin{remark}
+It follows that the covariant derivative $\frac{D}{Ds}Y(0)$ is well-defined if
+$\dot\alpha(0)\neq 0$. If $\dot\alpha(0) = 0$, by definition $\frac{D}{Ds}Y(0)=0$.
+\end{remark}
+\end{enumerate}
+
+\end{document}
