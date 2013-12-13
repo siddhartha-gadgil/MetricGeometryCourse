@@ -1,0 +1,63 @@
+\documentclass[10pt]{report}
+\begin{document}
+Hausdorff Dimension\\
+
+Let X be a compact metric space. Let S$\subset$X.\\
+Hausdorff capacity - $C^d(S)$ = inf $\{ \sum_{i}(r_i)^d : there\ is\ a\ cover\ of\ S\ by\ balls\ with\ radius\ r_i \}$\\
+Hausdorff dimension - $dim_H(X)$ = inf $\{ d\geq 0 : C^d(X)\ =\ 0 \}$\\
+Lemma : $dim_H([0,1])$ = 1 \\
+Consider the partition of [0,1] into N/2 equal line segments. Thus the radius of each ball is 1/N. It is sufficient to consider these partitions as they form a cofinal set by the lebesgue number lemma. $C^1([0,1])$ = inf $\{ \sum_{i=1}^{N}(1/N)^1 : N\ is\ a\ natural\ number \}$ = 1. Let d = 1+$\epsilon$. $C^d([0,1])$ = inf $\{ \sum_{i=1}^{N}(1/N)^d : N\ is\ a\ natural\ number \}$ = inf $\{ (1/N)^{\epsilon} : N\ is\ a\ natural\ number \}$ = 0 \\ 
+Lemma : $dim_H(Cantor\ Set)$ = $log_{3}2$ \\
+Consider the formation of the Cantor set. At the first stage, $ \sum_{i}(r_i)^d$ = $(1/3)^d\ +\ (1/3)^d$ = $2*(1/3)^d$ with $r_i = 1/3$ (for the minimum). At the second stage, $ \sum_{i}(r_i)^d$ = $(1/9)^d\ +\ (1/9)^d\ +\ (1/9)^d\ +\ (1/9)^d$ = $ 2^{2}*3^{-2d}$ with $r_i = 1/9$. At the nth stage, $ \sum_{i}(r_i)^d$ = $ 2^{n}*3^{-nd}$ with $r_i = 3^{-n}$. If d = $log_{3}2$ at the nth stage , $ \sum_{i}(r_i)^d$ = $ 2^{n}*3^{-nlog_{3}2}$ = 1. If d = $log_{3}2 + \epsilon$ at the nth stage , $ \sum_{i}(r_i)^d$ = $ 2^{n}*3^{-nlog_{3}2}*3^{-n\epsilon}$ = $3^{-n\epsilon}$ and the infimum over all natural numbers (because cantor set is intersection of all the above sets) will give 0 .\\
+The generalization of the above argument will give the following result.\\
+Lemma : $dim_H(Cantor\ Set(n,m))$ = $log_{m}n$  where the set is formed by dividing the interal [0,1] into m equal divisions and choosing n of them and repeating this process at each stage and taking the intersection of all of them. Note that $1\leq n\leq m$.\\
+Lemma : Let $dim_H(X) = n$. Let $f:X\rightarrow Y$ be a bijective lipschitz map with lipschitz constant K. Then $dim_H(Y) = n$.
+Since it is bijective, f will take a cover for X to a cover of Y and a cover for Y to a cover of X. Take a cover for Y. Then $C^d(Y)$ = inf $\{ \sum_{i}(d_Y(f(x_i),f(x_{i+1})))^d : there\ is\ a\ cover\ of\ Y\ by\ balls\ with\ radius\ d_Y(f(x_i),f(x_{i+1})) \}$. Since f is lipschitz, we have \\ $C^d(Y)\ \leq$ inf $\{ \sum_{i}(K*[d_X(x_i,x_{i+1})])^d : a\ cover\ of\ X\ by\ balls\ with\ radius\ d_X(x_i,x_{i+1}) \}$. Since K and d are constants we have $C^d(Y)\ \leq$ inf $\{ K^d*\sum_{i}(d_X(x_i,x_{i+1}))^d : a\ cover\ of\ X\ by\ balls\ with\ radius\ d_X(x_i,x_{i+1}) \}$.  If $d>n$ we have $C^d(Y)$ = 0 ($K^d$ is a constant will not affect the infimum). Similarly by using the lipschitz map from Y to X,can show that for $d\leq n$ we have $C^d(Y) > 0$ and hence $dim_H(Y) = n$
+\\
+\\
+\newpage
+Length in metric spaces\\
+
+Let (X,d) be a metric space. $\gamma:[0,1]\rightarrow(X,d)$ be a path.\\
+$L:F\rightarrow[0,\infty]$ where F is the set of all paths in X.\\
+$L(\gamma) = sup \{ \sum_{i=0}^{n-1} d(\gamma(t_i),\gamma(t_{i+1})) : 0=t_0\leq t_1\ ...\ \leq t_{n-1}\leq t_n =1\}$\\
+Properties of length :\\
+1. If $\gamma(t)=a\ \forall t \in [0,1]$ where $a\in X$ , then $L(\gamma) = 0$\\
+Proof - $d(\gamma(t_i),\gamma(t_{i+1})) = 0 \forall t_i\ and\ t_{i+1}\ as\ t_i \in [0,1]\ and\ t_{i+1} \in [0,1]$, hence the supremum is over the singleton set \{0\}. \\
+2. If $\gamma_1$ and $\gamma_2$ are two paths such that $\gamma_1(1) = \gamma_2(0)$ then $L(\gamma_1 +\gamma_2) = L(\gamma_1)+L(\gamma_2)$ where the + inside L is to be taken as joining the end points\\
+Proof - Take a partition for $\gamma_1$ and a partition for $\gamma_2$, put it together and we will get a partition for $\gamma_1+\gamma_2$ and we have to show that these partiions form a cofinal subset of the set of all partitions for $\gamma_1+\gamma_2$. The problem is we have chosen a point in the path and we want it to be an end point in our partition but it may not be so in an arbitrary partition. Take an arbitrary partition for [0,2]. If 1 is an end point then we are done otherwise there is a part containing 1. Cut this part into two such that 1 is the common endpoint of these two parts, then the resulting partition is of the type we want and has the partition we started with as a subset. So taking the supremums will give the same answer on both sides since the partitions correspond.\\
+3. $L(\gamma) \geq d(\gamma(0),\gamma(1))$ \\
+Proof - Application of triangle inequality repeatedly.\\
+4. If $\gamma$ is a path such that $\gamma(0) \neq \gamma(1)$, then $L(\gamma) > 0$ \\
+Proof - Suppose $L(\gamma) = 0$ then by 3 we have $d(\gamma(0),\gamma(1)) = 0 \Rightarrow \gamma(0) = \gamma(1)$ a contradiction.\\
+5. If $\gamma$ is a path such that $\gamma(a) \neq \gamma(b)$ for some $a,b\in [0,1]$, then $L(\gamma) >0$ \\
+Proof - Restriction of a path is also a path. Restrict $\gamma$ to [a,b], then use 4 and combine with 2 to get the result.\\
+6. $L(\gamma) = 0 \iff \gamma(t)=a \forall t \in [0,1]$\\
+Proof - Use 1 and 5.\\
+7. $inf \{ L(\gamma) : a = \gamma(0) \neq \gamma(1) = b \} > 0$\\
+Proof - $d(a,b) = 0 \Rightarrow a = b$ . From 3 the result follows.\\
+8. Let $\gamma$ be a path, define a path $\gamma'$ as $\gamma'(t) = \gamma(1-t) \forall t \in [0,1]$ then $L(\gamma') = L(\gamma)$ \\
+Proof - ($\sum_{i=0}^{n-1} d(\gamma(t_i),\gamma(t_{i+1})) : 0=t_0\leq t_1\ ...\ \leq t_{n-1}\leq t_n =1$) =  ($\sum_{i=0}^{n-1} d(\gamma'(t_i),\gamma'(t_{i+1})) : 0=1-t_n\leq 1-t_{n-1}\ ...\ \leq 1-t_1\leq 1-t_0 =1$) . Hence the supremum is over the same sets and are hence equal.\\
+More is true any reparametrization by a non decreasing continuous function leaves the length unchanged - same argument as above.\\
+Note - similarity between properties of metric and length 3,6,8.\\
+$L(\gamma|_{[0,t]})$ is a continous function of t - follows from continuity of $\gamma$.
+\\
+\\
+\newpage
+Metric in length spaces\\
+
+Let X be a space such that all paths in X have length i.e $L(\gamma)$ is given for all paths $\gamma$.\\
+$d(x,y) = inf \{ L(\gamma) : \gamma\ a\ path\ and\ \gamma(0)=x\ and\ \gamma(1)=y\} $\\
+Let $x,y,z \in X$\\
+Properties of d :\\
+1. $d(x,x)=0$ \\
+Proof - Consider the path given by $\gamma(t) = x \forall t \in [0,1]$. This path satisfies the requirements and hence from 1 we have the result.\\
+2. $d(x,y)=0 \Rightarrow x=y$ \\
+Proof - If the infimum is attained i.e there exists a path such that $L(\gamma)$ = 0 , then the result follows from 6. Suppose it is not attained then there exists a sequence of paths whose lengths converge to 0. If $x\neq y$ and fixed then 7 tells that $d(x,y) > 0$ . Thus if x is fixed then the sequence of paths alongwith 7 gives a sequence of points in X which converges to x and hence x=y.\\
+3. $d(x,y) = d(y,x)$ \\
+Proof - Follows from 8 \\
+4. $d(x,y) + d(y,z) \geq d(x,z)$\\
+Proof - Let $\gamma_1$ be a path such that $\gamma_{1}(0)=x$ and $\gamma_{1}(1)=y$ and $\gamma_2$ be a path such that $\gamma_{2}(0)=y$ and $\gamma_{2}(1)=z$. Concatenate $\gamma_1$ and $\gamma_2$ and we will get a path from x to z. Take the path which will give d(x,y) and concatenate with the path that gives d(y,z) (use property 2) and we get a path from x to z. Since d(x,z) is an infimum over all paths and this is one path among them we get the result.\\
+Thus d is a metric and with this X is a metric space.\\
+
+\end{document}
