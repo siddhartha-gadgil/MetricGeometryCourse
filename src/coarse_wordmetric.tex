@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{amsthm}
+\newtheorem*{theorem}{Theorem}
+\begin{document}
+\setlength{\parskip}{10pt plus 1pt minus 1pt}
+\title{Coarse Geometry and Groups}
+\author{Pranav Garg}
+\maketitle
+\section{Quasi-Isometry}
+\subsection*{Definitions}
+Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces.
+
+$f:X\rightarrow Y$ is said to be K-Lipschitz if\[\forall x_1, x_2\in X, d_Y(f(x_1),f(x_2))\leq K\cdot d_X(x_1, x_2)\]
+
+$f:X\rightarrow Y$ is said to be (K, L) Coarse Lipschitz if\[\forall x_1, x_2 \in X, d_Y(f(x_1),f(x_2)) \leq K\cdot d_X(x_1, x_2) + L\]
+
+$(X,d_X)$ and $(Y, d_Y)$ are said to be bilipschitz if $\exists f:X\rightarrow Y$ and $g:Y\rightarrow X$, lipschitz such that $f\circ g=\mathds{1}_Y$ and $g\circ f=\mathds{1}_X$.
+
+$f, g : X\rightarrow Y$ coarse lipschitz. We say $f\sim g$ if $\exists c>0$ such that $\forall x\in X, d_Y(f(x), g(x))<c$.
+
+$(X,d_X)$ and $(Y, d_Y)$ are said to be quasi-isometric if $\exists f : X\rightarrow Y$ and $g : Y\rightarrow X$, coarse lipschitz such that $f\circ g\sim \mathds{1}_Y$ and $g\circ f\sim \mathds{1}_X$.
+
+\subsection*{Examples}
+\begin{itemize}
+
+\item $\mathbb{Z}$ is quasi-isometric to $\mathbb{R}$.
+\item A bounded metric space is quasi-isometric to a point.
+\item If $\Gamma$ is a metric space, then the space of vertices is quasi-isometric to the space consisting of vertices and edges with the metric as defined in the section on graph metric.
+\end{itemize}
+\section{Word Metric}
+Let $G$ be a finitely generated group and $S$ be a finite generator set for $G$.
+For $g\in G$, define norm of $g$, \[\|g\| = min\{n \geq 0 : \exists \alpha_1, \alpha_2,..., \alpha_n \in S\cup S^{-1}, g=\alpha_1 \alpha_2 ...\alpha_n\} \]
+
+This satisfies the following properties:
+\begin{itemize}
+\item $\|g\| = 0\Leftrightarrow g=e$ where $e$ is the identity of $G$.
+\item $\|g^{-1}\|=\|g\|$
+\item $\|g_1g_2\|\leq \|g_1\|+\|g_2\|$
+\end{itemize}
+Define the word metric $d$ on $G$ by \[\forall g,h\in G,\; d(g,h)=\|g^{-1}h\|\]
+The properties of the norm listed above can be used to prove that this is a metric.
+\begin{theorem}
+If $S_1$ and $S_2$ are finite generating sets of $G$ and $d_1$ and $d_2$ are the corresponding word metrics, then $(G,d_1)$ is bilipschitz to $(G,d_2)$.
+\end{theorem}
+\begin{proof}
+Consider $f:(G,d_1)\rightarrow(G,d_2)$ and $h:(G,d_2)\rightarrow(G,d_1)$, both identity maps. Clearly $f\circ h$ and $h\circ f$ are also identity maps.
+
+Let $k_1=max\{\|\alpha\|_{S_2}:\alpha\in S_1\}.$
+As $S_1$ is finite, so is $k_1$.
+Now, if $\|g\|_{S_1}=n_1$, then $\exists \alpha_1, \alpha_2,...,\alpha_n \in S_1\cup S^{-1}_1$ such that $g=\alpha_1 \alpha_2 ...\alpha_n$
+\[\Rightarrow \|g\|_{S_2} \leq \|\alpha_1 \|_{S_2} + |\alpha_2\|_{S_2}+...+|\alpha_n\|_{S_2}\]
+\[\therefore\|g\|_{S_2}\leq \underbrace{k_1+k_1+...+k_1}_{\text{n times}}=k_1\cdot\|g\|_{S_1}\]
+
+We have shown $\|g\|_{S_2}\leq k_1\|g\|_{S_1}.$ By replacing $g$ by $g_1 g^{-1}_2$, for $g_1,g_2\in G$, we get that $f$ is $k_1 -$lipschitz.
+
+Similarly, we can construct a $k_2$ so that $h$ is $k_2 -$lipschitz.
+
+Thus $(G,d_1)$ is bilipschitz to $(G,d_2)$.
+\end{proof}
+\subsection*{Cayley Graph}
+The Cayley Graph on a finitely generated group $G$ with respect to a finite generator set $S$ is a graph with vertices as the set $G$ and edges as $E = \{(g, g\alpha ), \alpha \in S\cup S^{-1}\}$. The maps $i$ and $\tau$ are defined as: $i(g,g\alpha )=g$ and $\tau (g,g\alpha )=g\alpha$. The involution is $\overline{(g,g\alpha)}=(g\alpha,g)$.
+
+The word metric could alternatively and equivalently be defined as the graph metric on the Cayley graph.
+\section{Growth Function}
+Let $G$ be a finitely generated group and $S$ be a finite generator set for $G$.
+The growth function for $G$ and $S$, $\rho_{G,S}:\mathbb{N}\rightarrow\mathbb{N}$ is defined as:
+\[\rho_{G,S}(r)=|\{g\in G\; \vert\; \|g\|\leq r \}|\]
+
+Two growth functions $\rho_1$ and $\rho_2$ are defined to be equivalent, $\rho_1\sim\rho_2$, if $\exists k,c>0$ such that \[\forall r>0,\;\; \frac{1}{k}\rho_1(\frac{r}{c})\leq \rho_2(r)\leq k\rho_1(cr)\]
+\begin{theorem}
+If $S_1$ and $S_2$ are finite generating sets for $G$, then $\rho_{G,S_1}\sim\rho_{G,S_2}$
+\end{theorem}
+\begin{proof}
+Construct $k_1$ and $k_2$ as in the proof of the previous theorem.
+
+Let $c=max\{k_1,k_2\}$.
+\[\|g\|_{S_2}\leq r\;\Rightarrow\;\frac{r}{c}\leq\|g\|_{S_1}\leq cr\]
+\[\Rightarrow\{g\in G:\|g\|_{S_1}\geq \frac{r}{c}\}\subseteq\{g\in G:\|g\|_{S_2}\leq r\}\subseteq\{g\in G:\|g\|_{S_1}\leq cr\}\]
+\[\therefore\rho_{G,S_1}(\frac{r}{c})\leq\rho_{G,S_2}\leq\rho_{G,S_1}(cr)\]
+\end{proof}
+\begin{theorem}
+Let $\rho_n(r)=r^n$, $\rho_m(r)=r^m$. Then, $\rho_n\sim\rho_m\;\Rightarrow\;n=m$
+\end{theorem}
+\end{document}
