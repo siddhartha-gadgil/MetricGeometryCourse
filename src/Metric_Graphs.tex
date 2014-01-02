@@ -1,38 +1,67 @@
 \documentclass[a4paper,10pt]{book}
 
+
 \usepackage{textcomp}
+
 \usepackage{amsmath}
+
 \usepackage{amsthm}
+
 \usepackage[top=0.5in, bottom=0.5in, left=0.5in, right=0.5in]{geometry}
 
+\usepackage{setspace}
+
+
+
 \newtheorem{theorem}{Theorem}[chapter]
+
 \newtheorem{lemma}[theorem]{Lemma}
 
+
+
 \theoremstyle{definition}
+
 \newtheorem{definition}[theorem]{Definition}
+
 \newtheorem{example}[theorem]{Example}
+
 \newtheorem{xca}[theorem]{Exercise}
+
 \newtheorem{con}[theorem]{}
 
+
+
 \theoremstyle{remark}
+
 \newtheorem{remark}[theorem]{Remark}
 
+
+
 \numberwithin{section}{chapter}
+
 \numberwithin{equation}{chapter}
+
+
 
 \begin{document}
  
- \chapter{Metric Graphs}
- \section{Graphs: Combinatorical Structure}
+\chapter{Metric Graphs}
  
- \begin{definition}
-  A graph \emph{$\Gamma$} consists of
+
+\section{Graphs: Combinatorical Structure}
+ 
+ 
+\begin{definition}
   
-  \begin{itemize}
-   \item A pair of sets $(V,\ E)$ (called the `Vertex' and `Edge' sets respectively)
-   \item An involution  $\: \phi \colon E \rightarrow E$
-               satisfying $\phi (e) = \bar{e} $ and $\phi\circ\phi = \mathbf{1}_E$ (identity function)
-   \item Functions $i,\ \tau: E \rightarrow V$ such that $i(\bar{e}) = \tau (e) $ and $\tau(\bar{e}) = i(e)$
+A graph \emph{$\Gamma$} consists of
+  
+  
+\begin{itemize}
+   
+\item A pair of sets $(V,\ E)$ (called the `Vertex' and `Edge' sets respectively)
+   
+\item An involution  $\:\phi \colon E \rightarrow E$ satisfying $\phi (e) = \bar{e} $ and $\phi\circ\phi = \mathbf{1}_E$ (identity function)
+  \item Functions $i,\ \tau: E \rightarrow V$ such that $i(\bar{e}) = \tau (e) $ and $\tau(\bar{e}) = i(e)$
   \end{itemize}
 
  \end{definition}
@@ -64,16 +93,96 @@
    \begin{definition}
       The \emph{Graph Metric} on V is defined as
       \begin{equation}
-	  d_{max}(v_1,v_2)= \sup_{d \in \cal{D} }\{d(v_1,v_2) \} \nonumber
+	  d_{max}(v_1,v_2)= \sup_{d \in \cal{D} }d(v_1,v_2) \nonumber
       \end{equation} 
    \end{definition}
    \begin{lemma}
 	$ d_{max} $ is a metric.
     \proof 
     \begin{enumerate}
-      \item $\forall x \in V,\ d_{max}(x, x)= \sup_{d \in \cal{D}}\{d(x,x) \} = \sup \{ 0 \} = 0 $
-      \item $\forall x,\ y \in V,\ d_{max}(x, y)= \sup_{d \in \cal{D} }\{d(x,y) \} = \sup_{d \in \cal{D} }\{d(y,x) \} =d _{max}(y, x) $
-      \item $d(x, z)$
+      \item \[\forall \ x \in V,\ d_{max}(x, x)= \sup_{d \in \cal{D}}d(x,x) = \sup\{ 0 \} = 0 \]
+      \item \[\forall \ x,\ y \in V,\ d_{max}(x, y)= \sup_{d \in \cal{D} }d(x,y)= \sup_{d \in \cal{D} }d(y,x)  =d _{max}(y, x) \]
+      \item \[ d_{max}(x, z)=\sup\{d(x,y): d \in \mathcal{D}\} \leq \sup_{}\{ d(x,y): d \in \mathcal{D}\} {( d \in \cal{D} \text{ is a metric})} \]
     \end{enumerate}    
   \end{lemma}
+  \begin{definition}
+   An \emph{edge path} is a ordered list (may be null, in whuch case it is a single vertex) of edges- denoted by $ \eta=(e_1,e_2,\dots,e_n) $, such that, $ \forall i,\ 1\leq i < n,\ i(e_i)=\tau(e_{i+1})$. $\eta$ is called ``an edge path from $i(e_1)$ to $\tau(e_n)$''.
+  \end{definition}
+  \begin{definition}
+   An edge path is a \emph{loop} if $i(e_1) = \tau(e_n)$ 
+  \end{definition}
+  \begin{definition}
+   An edge path is said to be \emph{reduced} if $\forall\ i,\ 1\leq i<n,\ e_i \neq \bar{e}_{i+1}$
+  \end{definition}
+  \begin{definition}
+   A graph $\Gamma$ is \emph{connected} if $\forall\ x,y \in V,\ \exists$ an edge path from x to y.
+  \end{definition}
+  \begin{definition}
+   A connected graph is called a \emph{tree} if it has no reduced edge loops.
+  \end{definition}
+  \begin{theorem}
+   Let $\Gamma$ be a connected graph. Then for x, y $\in V$,
+   \begin{equation}
+    d_{max}(x,y)=min\{n\geq 0 :\ \exists\ \text{an edge path from x to y of cardinality }n\}
+   \end{equation}
+  \proof
+  Let $d_{\Gamma}(x,y)=min\{n\geq 0 :\ \exists\ \text{an edge path from x to y of cardinality }n\}$.\\
+  We shall show:
+  \begin{enumerate}
+  
+   \item $d_\Gamma$ is a metric
+   \item $d_\Gamma (i(e),\tau (e))\leq 1$ 
+   \item $d_{max}(x,y) \leq d_\Gamma(x,y)$
+  \end{enumerate}
+Now, the first and second points establish that $d_\Gamma \in \mathcal{D} $. Then, $d_{max}$ being the supremum value will imply $d_{max}(x,y) \geq d_\Gamma (x,y)$. Together with 3, this will give the desired result. 
+  \begin{lemma}
+   $d_\Gamma$ is a metric
+   \proof
+   \begin{enumerate}
+    \item \[d_\Gamma(x,x) = 0\] because the single vertex `x' is a null list of edges that give the minimal connecting edge path.
+    \item \[d_\Gamma(x,y) = d_\Gamma(y,x)\] Now, in an (undirected) graph, $\eta$ is a valid edge path iff $\bar{\eta}$ is also a valid edge path.
+    \begin{remark}
+     \[ \eta = (e_1,e_2,\dots,e_n) \Rightarrow \bar{\eta}=(\bar{e}_n,\bar{e}_{n-1},\dots,\bar{e}_1)\] 
+     If $\eta$ is an edge path from x to y, $\bar{\eta}$ is an edge path fom y to x.
+    \end{remark}
+    Hence, the involution of the minimal edge path connecting x to y will connect y to x. This will also be the minimal edge path connecting y to x since otherwise the involution of the shorter path (from y to x) will connect x to y and be shorter hat the oiginal path, which leads to a contradiction.
+    \item If \[
+              \eta_1=(e_1,\dots,e_n) \text{ is the minimal path connecting x to y}\] and\[
+              \eta_2=(e_{n+1},\dots,e_m) \text{ is the minimal path connecting y to z}
+             \]
+             \begin{remark}
+              Edges in $\eta_1$ and $\eta_2$ need not be distinct.
+             \end{remark}
+             Then,\[
+                   \eta_1 \circ \eta_2 = (e_1,e_2,\dots,e_n,e_{n+1},\dots,e_m) \text{ is an edge path connecting x to z}
+                  \]
+                  Hence the minimal edge path connecting x to z will have to be, by definition, shorter than or the same length as this path. Which means
+                  \[
+                   d_{max}(x,z)=|\eta_{min}|\leq |\eta_1 \circ \eta_2| =m+n =d_{max}(x,y)+d_{max}(y,z)
+                  \]
+                     \end{enumerate}
+    This proves that $d_{max}$ is a metric.
+  \end{lemma}
+  \begin{lemma}
+    $d_\Gamma (i(e),\tau (e))\leq 1$
+    \proof Since $(e)$ is an edge path connecting $i(e)$ and $\tau(e)$, the minimal edge path will have cardinality less than or equal to this. That is,
+    \[
+      d_{max}(i(e),\tau(e))\leq |(e)| = 1
+    \]
+  \end{lemma}
+    \begin{lemma}
+     $d_{max}(x,y) \leq d_\Gamma(x,y)$
+    \proof Let $ d_\Gamma(x,y) = n$.
+    This means that there exists an edge path $\eta = (e_1,\dots,e_n) $ connecting x to y. Now,
+    \[
+     d_{max}(x,y) \leq d_{max}(i(e_1,\tau(e_1)) + \dots + d_{max}(i(e_n),\tau(e_n)) \ \ \ \ \ \ \ \ \ \  \text{[$d_{max}$ is a metric]}
+    \]
+    \[
+     \leq 1 + \dots +1=n \hspace{2in} [d_{max} \in \mathcal{D}]
+    \]
+
+
+  \end{lemma}
+
+  \end{theorem}
 \end{document}
