@@ -1,67 +1,39 @@
 \documentclass[a4paper,10pt]{book}
 
-
 \usepackage{textcomp}
-
 \usepackage{amsmath}
-
 \usepackage{amsthm}
-
 \usepackage[top=0.5in, bottom=0.5in, left=0.5in, right=0.5in]{geometry}
-
 \usepackage{setspace}
 
-
-
 \newtheorem{theorem}{Theorem}[chapter]
-
 \newtheorem{lemma}[theorem]{Lemma}
 
-
-
 \theoremstyle{definition}
-
 \newtheorem{definition}[theorem]{Definition}
-
 \newtheorem{example}[theorem]{Example}
-
 \newtheorem{xca}[theorem]{Exercise}
-
 \newtheorem{con}[theorem]{}
 
-
-
 \theoremstyle{remark}
-
 \newtheorem{remark}[theorem]{Remark}
 
-
-
 \numberwithin{section}{chapter}
-
 \numberwithin{equation}{chapter}
-
-
 
 \begin{document}
  
-\chapter{Metric Graphs}
+ \chapter{Metric Graphs}
+ \section{Graphs: Combinatorical Structure}
  
-
-\section{Graphs: Combinatorical Structure}
- 
- 
-\begin{definition}
+ \begin{definition}
+  A graph \emph{$\Gamma$} consists of
   
-A graph \emph{$\Gamma$} consists of
-  
-  
-\begin{itemize}
-   
-\item A pair of sets $(V,\ E)$ (called the `Vertex' and `Edge' sets respectively)
-   
-\item An involution  $\:\phi \colon E \rightarrow E$ satisfying $\phi (e) = \bar{e} $ and $\phi\circ\phi = \mathbf{1}_E$ (identity function)
-  \item Functions $i,\ \tau: E \rightarrow V$ such that $i(\bar{e}) = \tau (e) $ and $\tau(\bar{e}) = i(e)$
+  \begin{itemize}
+   \item A pair of sets $(V,\ E)$ (called the `Vertex' and `Edge' sets respectively)
+   \item An involution  $\: \phi \colon E \rightarrow E$
+               satisfying $\phi (e) = \bar{e} $ and $\phi\circ\phi = \mathbf{1}_E$ (identity function)
+   \item Functions $i,\ \tau: E \rightarrow V$ such that $i(\bar{e}) = \tau (e) $ and $\tau(\bar{e}) = i(e)$
   \end{itemize}
 
  \end{definition}
